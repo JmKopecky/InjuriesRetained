@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ala",
+    "lgl",
+    "ala"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "l": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "g": {
+      "item": "minecraft:golden_apple"
+    }
+  },
+  "result": {
+    "item": "damagemaxhealth:rune_of_health"
+  }
+}

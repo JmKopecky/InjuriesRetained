@@ -13,10 +13,10 @@
       "item": "minecraft:lapis_lazuli"
     },
     "g": {
-      "item": "minecraft:golden_apple"
+      "item": "minecraft:enchanted_golden_apple"
     }
   },
   "result": {
-    "item": "damagemaxhealth:rune_of_health"
+    "item": "injuriesretained:greater_rune_of_health"
   }
 }

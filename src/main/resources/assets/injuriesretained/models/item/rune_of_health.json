@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "damagemaxhealth:item/rune_of_health"
+    "layer0": "injuriesretained:item/rune_of_health"
   }
 }

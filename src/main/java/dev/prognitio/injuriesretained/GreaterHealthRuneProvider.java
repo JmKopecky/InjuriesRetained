@@ -1,4 +1,4 @@
-package dev.prognitio.damagemaxhealth;
+package dev.prognitio.injuriesretained;
 
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;

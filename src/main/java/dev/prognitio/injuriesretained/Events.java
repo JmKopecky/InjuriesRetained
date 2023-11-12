@@ -1,4 +1,4 @@
-package dev.prognitio.damagemaxhealth;
+package dev.prognitio.injuriesretained;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
@@ -16,14 +16,14 @@ import net.minecraftforge.fml.common.Mod;
 
 import java.util.UUID;
 
-@Mod.EventBusSubscriber(modid = DamageMaxHealth.MODID)
+@Mod.EventBusSubscriber(modid = InjuriesRetained.MODID)
 public class Events {
 
     static String damageAttrUUID = "1e7cf150-2463-461f-b02a-7c72936c98bc";
-    static String damageAttributeID = DamageMaxHealth.MODID + ":damagedecrease";
+    static String damageAttributeID = InjuriesRetained.MODID + ":damagedecrease";
 
     static String respawnAttrUUID = "853d2844-9717-45ef-8e76-7f242690da9a";
-    static String respawnAttributeID = DamageMaxHealth.MODID + ":respawnbuff";
+    static String respawnAttributeID = InjuriesRetained.MODID + ":respawnbuff";
 
     @SubscribeEvent
     public static void onPlayerHurt(LivingDamageEvent event) {
@@ -105,7 +105,7 @@ public class Events {
         if (event.getObject() instanceof Player) {
             if (event.getObject() != null) {
                 if (!(event.getObject()).getCapability(GreaterHealthRuneProvider.GHRBonus).isPresent()) {
-                    event.addCapability(new ResourceLocation(DamageMaxHealth.MODID, "greater_health_rune_bonus"), new GreaterHealthRuneProvider());
+                    event.addCapability(new ResourceLocation(InjuriesRetained.MODID, "greater_health_rune_bonus"), new GreaterHealthRuneProvider());
                 }
             }
         }

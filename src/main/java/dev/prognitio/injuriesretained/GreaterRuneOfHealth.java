@@ -1,4 +1,4 @@
-package dev.prognitio.damagemaxhealth;
+package dev.prognitio.injuriesretained;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -18,13 +18,13 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
-public class RuneOfHealth extends Item {
+public class GreaterRuneOfHealth extends Item {
 
     static String uuid = "899d0fd1-77fe-430c-a347-9001d068db19";
-    static String id = DamageMaxHealth.MODID + ":addhealth";
+    static String id = InjuriesRetained.MODID + ":addhealth";
 
 
-    public RuneOfHealth(Properties p_41383_) {
+    public GreaterRuneOfHealth(Properties p_41383_) {
         super(p_41383_);
     }
 
@@ -40,17 +40,28 @@ public class RuneOfHealth extends Item {
         instance.removeModifier(UUID.fromString(uuid));
         AttributeModifier addedHealth = new AttributeModifier(UUID.fromString(uuid), id, amount, AttributeModifier.Operation.ADDITION);
         instance.addPermanentModifier(addedHealth);
+
+        user.getCapability(GreaterHealthRuneProvider.GHRBonus).ifPresent(cap -> {
+            cap.setHealthBonus(cap.getHealthBonus() + 2);
+        });
         stack.shrink(1);
+
+
 
         return InteractionResultHolder.consume(stack);
     }
 
     @Override
+    public boolean isFoil(ItemStack stack) {
+        return true;
+    }
+
+    @Override
     public void appendHoverText(ItemStack item, @Nullable Level level, List<Component> components, TooltipFlag tooltipFlag) {
-        components.add(Component.literal("This rune is imbued with the power of vitality.").withStyle(ChatFormatting.DARK_RED));
+        components.add(Component.literal("This rune is imbued with the power of vitality and longevity.").withStyle(ChatFormatting.DARK_RED));
 
         if (Screen.hasShiftDown()) {
-            components.add(Component.literal("Right click to gain an extra heart.").withStyle(ChatFormatting.RED));
+            components.add(Component.literal("Right click to gain an extra heart, retained after death.").withStyle(ChatFormatting.RED));
         }
 
         super.appendHoverText(item, level, components, tooltipFlag);
